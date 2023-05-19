@@ -1,0 +1,13 @@
+name: DEV Deploy
+on:
+  workflow_dispatch:
+  
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: dev
+    name: deploy
+    steps:
+      - name: Deploy
+        run: |
+          echo "This is deploy step"
