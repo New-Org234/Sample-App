@@ -11,3 +11,12 @@ jobs:
       - name: Deploy
         run: |
           echo "This is deploy step"
+          
+  post-deploy:
+    runs-on: ubuntu-latest
+    needs: deploy
+    name: post-deploy
+    steps:
+      - name: Post Deploy
+        run: |
+          echo "This is deploy step"
