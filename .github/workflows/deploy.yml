@@ -1,12 +1,27 @@
 name: DEV Deploy
 on:
   workflow_dispatch:
+    inputs:
+      Environment:
+            type: choice
+            description: 'Environment'
+            options: 
+            - dev
+            - test
   
 jobs:
+  pre-deploy:
+    runs-on: ubuntu-latest
+    name: pre-deploy
+    steps:
+      - name: Deploy
+        run: |
+          echo "This is deploy step"
   deploy:
     runs-on: ubuntu-latest
     environment: dev
     name: deploy
+    needs: pre-deploy
     steps:
       - name: Deploy
         run: |
