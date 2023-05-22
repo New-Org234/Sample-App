@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
 #     environment: dev
     name: deploy
-    needs: pre-deploy
+    needs: [pre-deploy,child-deploy]
     steps:
       - name: Deploy
         run: |
