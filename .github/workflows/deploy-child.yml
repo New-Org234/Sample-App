@@ -1,9 +1,9 @@
 name: invoked
 
 on:
-  schedule:
-    - cron: "*/10 * * * *"
-#     - cron: ${{ inputs.time }}
+#   schedule:
+#     - cron: "*/10 * * * *"
+# #     - cron: ${{ inputs.time }}
   workflow_call:
     inputs:
       time:
