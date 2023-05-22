@@ -22,7 +22,7 @@ jobs:
     needs: pre-deploy
     uses: ./.github/workflows/deploy-child.yml
     with:
-      time: test
+      time: '*/5 * * * *'
     
   deploy:
     runs-on: ubuntu-latest
