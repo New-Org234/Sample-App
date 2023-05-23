@@ -27,6 +27,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: test
+    if: ${{ inputs.Environment }} == 'test'
     name: deploy
     needs: pre-deploy
     steps:
