@@ -33,9 +33,17 @@ jobs:
       - name: Deploy
         run: |
           echo "This is deploy step" 
-  Notify_Approvers:
+  Update-DevOps-Task-ACTIVE:
     runs-on: ubuntu-latest
     needs: Artifact_Validation
+    name: Update-DevOps-Task-ACTIVE
+    steps:
+      - name: Deploy
+        run: |
+          echo "This is deploy step" 
+  Notify_Approvers:
+    runs-on: ubuntu-latest
+    needs: Update-DevOps-Task-ACTIVE
     name: Notify_Approvers
     steps:
       - name: Deploy
@@ -66,9 +74,17 @@ jobs:
       - name: Post Deploy
         run: |
           echo "This is deploy step"
-  Sent_Email:
+  Update-DevOps-Task-CLOSE:
     runs-on: ubuntu-latest
     needs: DeploymentVersionUpdator
+    name: Update-DevOps-Task-CLOSE
+    steps:
+      - name: Deploy
+        run: |
+          echo "This is deploy step" 
+  Sent_Email:
+    runs-on: ubuntu-latest
+    needs: Update-DevOps-Task-CLOSE
     name: Sent_Email
     steps:
       - name: Post Deploy
