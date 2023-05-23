@@ -1,14 +1,19 @@
-name: DEV Deploy
+name: Deployment
 on:
   workflow_dispatch:
     inputs:
+      version:
+        description: 'Version'
+        required: true
+        type: string
       Environment:
-            type: choice
-            description: 'Environment'
-            options: 
-            - dev
-            - test
-            - stg  
+        type: choice
+        required: true
+        description: 'Environment'
+        options: 
+        - dev
+        - test
+        - stg  
 jobs:
   Version-Validation:
     runs-on: ubuntu-latest
