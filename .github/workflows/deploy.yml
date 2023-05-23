@@ -41,18 +41,18 @@ jobs:
       - name: Deploy
         run: |
           echo "This is deploy step" 
-  deploy:
+  Deploy:
     runs-on: ubuntu-latest
     environment: ${{ inputs.Environment }}
     name: deploy
-    needs: Artifact_Validation
+    needs: Notify_Approvers
     steps:
       - name: Deploy
         run: |
           echo "This is deploy step"
   Post_Deployment_Artifact_Tagging:
     runs-on: ubuntu-latest
-    needs: deploy
+    needs: Deploy
     name: Post_Deployment_Artifact_Tagging
     steps:
       - name: Post Deploy
