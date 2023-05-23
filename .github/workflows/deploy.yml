@@ -8,6 +8,7 @@ on:
             options: 
             - dev
             - test
+            - stg
   
 jobs:
   pre-deploy:
