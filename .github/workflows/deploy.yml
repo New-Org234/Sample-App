@@ -18,17 +18,17 @@ jobs:
         run: |
           echo "This is deploy step"
   
-  child-deploy:
-    needs: pre-deploy
-    uses: ./.github/workflows/deploy-child.yml
-    with:
-      time: '*/5 * * * *'
+#   child-deploy:
+#     needs: pre-deploy
+#     uses: ./.github/workflows/deploy-child.yml
+#     with:
+#       time: '*/5 * * * *'
     
   deploy:
     runs-on: ubuntu-latest
-#     environment: dev
+    environment: dev
     name: deploy
-    needs: [pre-deploy,child-deploy]
+    needs: pre-deploy
     steps:
       - name: Deploy
         run: |
