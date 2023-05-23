@@ -15,32 +15,17 @@ on:
         - test
         - stg  
 jobs:
-  Version-Validation:
+  Version-UserInput-Artifact-Validation:
     runs-on: ubuntu-latest
     name: Version-Validation
     steps:
       - name: Deploy
         run: |
           echo "This is deploy step"
-  User_Input_Version_Validation:
-    runs-on: ubuntu-latest
-    needs: Version-Validation
-    name: User_Input_Version_Validation
-    steps:
-      - name: Deploy
-        run: |
-          echo "This is deploy step"  
-  Artifact_Validation:
-    runs-on: ubuntu-latest
-    needs: User_Input_Version_Validation
-    name: Artifact_Validation
-    steps:
-      - name: Deploy
-        run: |
-          echo "This is deploy step" 
+  
   Update-DevOps-Task-ACTIVE:
     runs-on: ubuntu-latest
-    needs: Artifact_Validation
+    needs: Version-UserInput-Artifact-Validation
     name: Update-DevOps-Task-ACTIVE
     steps:
       - name: Deploy
